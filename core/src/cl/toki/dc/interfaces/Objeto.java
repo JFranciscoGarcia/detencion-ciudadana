@@ -16,14 +16,14 @@ public abstract class Objeto extends Actor implements IVelocidad {
 	private Rectangle contorno;
 	private TextureRegion currentFrame;
 	private final Animation animacion;
-	public Escenario escenario;
+	public JuegoCore escenario;
 	public boolean esObjetodePoder = false;
 	public boolean esColisionable = true;
 	private float stateTime;
 	public int velocidad = 5;
 	public int puntaje;
 
-	public Objeto(Escenario escenario, float x, float y) {
+	public Objeto(JuegoCore escenario, float x, float y) {
 		this.escenario = escenario;
 		this.escenario.addActor(this);
 		animacion = getAnimacion();
@@ -37,7 +37,7 @@ public abstract class Objeto extends Actor implements IVelocidad {
 				getHeight() / 2);
 	}
 	
-	public Objeto(Escenario escenario, float x, float y, int puntaje) {
+	public Objeto(JuegoCore escenario, float x, float y, int puntaje) {
 		this.escenario = escenario;
 		this.escenario.addActor(this);
 		this.puntaje=puntaje;
@@ -82,5 +82,5 @@ public abstract class Objeto extends Actor implements IVelocidad {
 
 	abstract public Animation getAnimacion();
 
-	abstract public void realizarAnimacionChoque();
+	abstract public void realizarAnimacionColision();
 }

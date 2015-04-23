@@ -2,7 +2,7 @@ package cl.toki.dc.actor.objetoscolisionables;
 
 import java.util.Random;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.Constantes;
 import cl.toki.dc.util.FrameUtil;
@@ -17,7 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
  */
 public class Cuchillo extends Objeto {
 
-    public Cuchillo(Escenario escenario) {
+    public Cuchillo(JuegoCore escenario) {
         super(escenario, Constantes.ANCHO_MAXIMO, Constantes.ALTO_MAXIMO / 6,100);
         verificarAsignarVelocidad();
     }
@@ -31,7 +31,7 @@ public class Cuchillo extends Objeto {
     }
 
     @Override
-    public void realizarAnimacionChoque() {
+    public void realizarAnimacionColision() {
 
         ParallelAction seq = new ParallelAction();
 
@@ -68,7 +68,7 @@ public class Cuchillo extends Objeto {
     }
 
     private void verificarAsignarVelocidad() {
-        switch (escenario.personaje.nivelActualVel) {
+        switch (escenario.pinera.nivelActualVel) {
             case uno:
                 velocidad = 5;
                 break;

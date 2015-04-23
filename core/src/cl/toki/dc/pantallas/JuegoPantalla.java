@@ -1,7 +1,7 @@
 package cl.toki.dc.pantallas;
 
 import cl.toki.dc.DetencionCiudadana;
-import cl.toki.dc.stage.ValparaisoEscenario;
+import cl.toki.dc.interfaces.JuegoCore;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -13,12 +13,12 @@ import com.badlogic.gdx.graphics.GL20;
  */
 public class JuegoPantalla extends Pantalla {
 
-    ValparaisoEscenario valparaisoEscenario;
+    JuegoCore juegoCore;
 
     public JuegoPantalla(DetencionCiudadana gam) {
     	super(gam);
-        valparaisoEscenario = new ValparaisoEscenario(this);
-        Gdx.input.setInputProcessor(valparaisoEscenario);
+    	juegoCore = new JuegoCore(this);
+        Gdx.input.setInputProcessor(juegoCore);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class JuegoPantalla extends Pantalla {
 
         juego.batch.setProjectionMatrix(camera.combined);
 
-        valparaisoEscenario.act(Gdx.graphics.getDeltaTime());
-        valparaisoEscenario.draw();
+        juegoCore.act(Gdx.graphics.getDeltaTime());
+        juegoCore.draw();
 
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
             dispose();
@@ -43,11 +43,11 @@ public class JuegoPantalla extends Pantalla {
 
     @Override
     public void dispose() {
-        valparaisoEscenario.dispose();
+    	juegoCore.dispose();
     }
 
 	public void siguientePantalla(int puntajeFinal) {
-		PuntajePantalla puntajePantalla = new PuntajePantalla(juego, puntajeFinal);
+		Puntaje puntajePantalla = new Puntaje(juego, puntajeFinal);
 		juego.setScreen(puntajePantalla);
 		dispose();
 	}

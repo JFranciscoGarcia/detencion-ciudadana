@@ -3,7 +3,7 @@ package cl.toki.dc.actor.objetoscolisionables;
 import java.util.ArrayList;
 import java.util.List;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.ObjetoUtil;
 
@@ -27,7 +27,7 @@ public class JugadaSimple extends Jugada {
 	 * @param cantidadObjetos
 	 *            Corresponde al número de objetos que componen la la jugada
 	 */
-	public JugadaSimple(Escenario escenario, int cantidadObjetos) {
+	public JugadaSimple(JuegoCore escenario, int cantidadObjetos) {
 		
 		for (int i = 0; i < cantidadObjetos; i++) {
 			objetos.add(ObjetoUtil.getObjetoSimpleRnd(escenario));
@@ -37,6 +37,8 @@ public class JugadaSimple extends Jugada {
 			float anteriorX = objetos.get(i - 1).getX();
 			objetos.get(i).setX(anteriorX + distanciaObjetos);
 		}
+		
+		objetos.add(new Completo(escenario));
 
 	}
 

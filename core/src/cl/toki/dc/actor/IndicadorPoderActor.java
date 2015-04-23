@@ -1,6 +1,6 @@
 package cl.toki.dc.actor;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.util.Constantes;
 
 import com.badlogic.gdx.Gdx;
@@ -16,14 +16,14 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 public class IndicadorPoderActor extends Actor {
 
-    private final Escenario escenario;
+    private final JuegoCore escenario;
     private final BitmapFont contadorFont;
     private Texture nivel;
     private final Texture nivel1;
     private final Texture nivel2;
     private final Texture nivel3;
 
-    public IndicadorPoderActor(Escenario escenario) {
+    public IndicadorPoderActor(JuegoCore escenario) {
         this.escenario = escenario;
         contadorFont = new BitmapFont();
         contadorFont.setColor(Color.YELLOW);
@@ -38,7 +38,7 @@ public class IndicadorPoderActor extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
 
-        switch (escenario.personaje.nivelActualVel) {
+        switch (escenario.pinera.nivelActualVel) {
             case uno:
                 nivel = nivel1;
                 break;

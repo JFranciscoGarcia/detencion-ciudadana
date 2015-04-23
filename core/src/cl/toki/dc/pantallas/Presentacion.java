@@ -42,7 +42,7 @@ public class Presentacion implements Screen {
 
         if (Gdx.input.justTouched()) {
         	
-        	Pantalla menuPersonaje = new PersonajesPantalla(game); 
+        	Pantalla menuPersonaje = new Personajes(game); 
         	game.setScreen(menuPersonaje);
             dispose();
         }

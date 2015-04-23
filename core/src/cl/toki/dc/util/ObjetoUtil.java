@@ -3,14 +3,14 @@ package cl.toki.dc.util;
 import cl.toki.dc.actor.objetoscolisionables.Cuchillo;
 import cl.toki.dc.actor.objetoscolisionables.Perro;
 import cl.toki.dc.actor.objetoscolisionables.Tarro;
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 
 import com.badlogic.gdx.math.MathUtils;
 
 public class ObjetoUtil {
 
-	public static Objeto getObjetoSimpleRnd(Escenario escenario) {
+	public static Objeto getObjetoSimpleRnd(JuegoCore escenario) {
 		Objeto objeto;
 		if (MathUtils.randomBoolean()) {
 			objeto = new Tarro(escenario);
@@ -21,7 +21,7 @@ public class ObjetoUtil {
 
 	}
 
-	public static Objeto getObjetoMedioRnd(Escenario escenario) {
+	public static Objeto getObjetoMedioRnd(JuegoCore escenario) {
 		Objeto objeto;
 		if (MathUtils.randomBoolean()) {
 			objeto = new Cuchillo(escenario);
@@ -32,7 +32,7 @@ public class ObjetoUtil {
 
 	}
 
-	public static Objeto getObjetoAltoRnd(Escenario escenario) {
+	public static Objeto getObjetoAltoRnd(JuegoCore escenario) {
 		Objeto objeto;
 		if (MathUtils.randomBoolean()) {
 			objeto = new Cuchillo(escenario);

@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.math.MathUtils;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.ObjetoUtil;
 
@@ -28,7 +28,7 @@ public class JugadaCompleja extends Jugada {
 	 * @param cantidadObjetos
 	 *            Corresponde al número de objetos que componen la la jugada
 	 */
-	public JugadaCompleja(Escenario escenario, int cantidadObjetos) {
+	public JugadaCompleja(JuegoCore escenario, int cantidadObjetos) {
 
 		for (int i = 0; i < cantidadObjetos; i++) {
 			if (MathUtils.randomBoolean()) {

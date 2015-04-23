@@ -1,6 +1,6 @@
 package cl.toki.dc.actor;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.util.Constantes;
 
 import com.badlogic.gdx.graphics.Color;
@@ -14,10 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 public class ContadorActor extends Actor {
 
-    private final Escenario escenario;
+    private final JuegoCore escenario;
     private final BitmapFont contadorFont;
 
-    public ContadorActor(Escenario escenario) {
+    public ContadorActor(JuegoCore escenario) {
         this.escenario = escenario;
         contadorFont = new BitmapFont();
         contadorFont.setColor(Color.YELLOW);

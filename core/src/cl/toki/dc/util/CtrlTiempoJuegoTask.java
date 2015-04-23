@@ -1,6 +1,6 @@
 package cl.toki.dc.util;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 
 import com.badlogic.gdx.utils.Timer.Task;
 
@@ -8,14 +8,16 @@ import com.badlogic.gdx.utils.Timer.Task;
  *
  * @author Francisco Garcia
  */
+
+//TODO logica fuerte!
 public class CtrlTiempoJuegoTask extends Task {
 
     private int segundosRestantes;
     private int tiempoJuego;
     private boolean seCumplioTiempo;
-    private final Escenario escenario;
+    private final JuegoCore escenario;
 
-    public CtrlTiempoJuegoTask(Escenario escenario, int tiempoJuego) {
+    public CtrlTiempoJuegoTask(JuegoCore escenario, int tiempoJuego) {
         this.escenario= escenario;
         this.tiempoJuego=tiempoJuego;
         segundosRestantes= tiempoJuego;
@@ -39,10 +41,6 @@ public class CtrlTiempoJuegoTask extends Task {
         return segundosRestantes;
     }
 
-    public int getTiempoJuego() {
-        return tiempoJuego;
-    }
-    
     public int getTiempoTranscurridos() {
         return tiempoJuego-segundosRestantes;
     }
@@ -50,9 +48,9 @@ public class CtrlTiempoJuegoTask extends Task {
     public String getTiempoRestanteStr() {
         return String.valueOf(getTiempoRestante());
     }
-    //TODO
+ 
     private void tiempoCumplido(){
-        escenario.finalizarNivel();
+        escenario.finalizarJuego();
     }
 
 }

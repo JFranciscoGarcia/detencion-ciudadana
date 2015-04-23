@@ -2,7 +2,7 @@ package cl.toki.dc.actor.objetoscolisionables;
 
 import java.util.Random;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.Constantes;
 import cl.toki.dc.util.FrameUtil;
@@ -19,7 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
  */
 public class Tarro extends Objeto {
 
-	public Tarro(Escenario escenario) {
+	public Tarro(JuegoCore escenario) {
 		super(escenario, Constantes.ANCHO_MAXIMO, Constantes.ALTURA_PISO - 5,50);
 		verificarAsignarVelocidad();
 	}
@@ -34,7 +34,7 @@ public class Tarro extends Objeto {
 	}
 
 	@Override
-	public void realizarAnimacionChoque() {
+	public void realizarAnimacionColision() {
 
 		ParallelAction paraleloActions = new ParallelAction();
 		RotateToAction rotateAction = new RotateToAction();
@@ -69,7 +69,7 @@ public class Tarro extends Objeto {
 	}
 
 	private void verificarAsignarVelocidad() {
-		switch (escenario.personaje.nivelActualVel) {
+		switch (escenario.pinera.nivelActualVel) {
 		case uno:
 			velocidad = 5;
 			break;

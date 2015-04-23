@@ -2,7 +2,7 @@ package cl.toki.dc.actor.objetoscolisionables;
 
 import java.util.Random;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.Constantes;
 import cl.toki.dc.util.FrameUtil;
@@ -17,7 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
  */
 public class Perro extends Objeto {
 
-    public Perro(Escenario escenario) {
+    public Perro(JuegoCore escenario) {
         super(escenario, Constantes.ANCHO_MAXIMO, Constantes.ALTURA_PISO - 5,50);
         verificarAsignarVelocidad();
     }
@@ -30,7 +30,7 @@ public class Perro extends Objeto {
     }
 
     @Override
-    public void realizarAnimacionChoque() {
+    public void realizarAnimacionColision() {
         ParallelAction seq = new ParallelAction();
 
        // MoveToAction moveAction = new MoveToAction();
@@ -66,7 +66,7 @@ public class Perro extends Objeto {
     }
 
     private void verificarAsignarVelocidad() {
-        switch (escenario.personaje.nivelActualVel) {
+        switch (escenario.pinera.nivelActualVel) {
             case uno:
                 velocidad = 5;
                 break;

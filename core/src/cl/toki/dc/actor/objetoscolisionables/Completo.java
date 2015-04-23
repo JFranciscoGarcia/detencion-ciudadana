@@ -2,7 +2,7 @@ package cl.toki.dc.actor.objetoscolisionables;
 
 import java.util.Random;
 
-import cl.toki.dc.interfaces.Escenario;
+import cl.toki.dc.interfaces.JuegoCore;
 import cl.toki.dc.interfaces.Objeto;
 import cl.toki.dc.util.Constantes;
 import cl.toki.dc.util.FrameUtil;
@@ -17,7 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.RotateToAction;
  */
 public class Completo extends Objeto {
 
-	public Completo(Escenario escenario) {
+	public Completo(JuegoCore escenario) {
 		super(escenario, Constantes.ANCHO_MAXIMO, Constantes.ALTO_MAXIMO / 4);
 		verificarAsignarVelocidad();
 		esObjetodePoder = true;
@@ -57,7 +57,7 @@ public class Completo extends Objeto {
 
 
 	@Override
-	public void realizarAnimacionChoque() {
+	public void realizarAnimacionColision() {
 
 		ParallelAction seq = new ParallelAction();
 
@@ -94,7 +94,7 @@ public class Completo extends Objeto {
 	}
 
 	private void verificarAsignarVelocidad() {
-		switch (escenario.personaje.nivelActualVel) {
+		switch (escenario.pinera.nivelActualVel) {
 		case uno:
 			velocidad = 5;
 			break;
